@@ -28,26 +28,18 @@
         android:enabled="false" />
 
     <EditText
-        android:id="@+id/wiaj_et_dividendo_third"
+        android:id="@+id/wiaj_et_primer_numero_third"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Dividendo"
+        android:hint="Primer numero"
         android:inputType="number"
         android:enabled="true" />
 
     <EditText
-        android:id="@+id/wiaj_et_divisor_third"
+        android:id="@+id/wiaj_et_segundo_numero_third"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Divisor"
-        android:inputType="number"
-        android:enabled="true" />
-
-    <EditText
-        android:id="@+id/wiaj_et_numero_third"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Numero (para invertir)"
+        android:hint="Segundo numero"
         android:inputType="number"
         android:enabled="true" />
 

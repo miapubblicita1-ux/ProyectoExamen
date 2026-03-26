@@ -28,24 +28,17 @@
         android:enabled="true" />
 
     <EditText
-        android:id="@+id/wiaj_et_dividendo_second"
+        android:id="@+id/wiaj_et_primer_numero_second"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Dividendo"
+        android:hint="Primer numero"
         android:enabled="false" />
 
     <EditText
-        android:id="@+id/wiaj_et_divisor_second"
+        android:id="@+id/wiaj_et_segundo_numero_second"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Divisor"
-        android:enabled="false" />
-
-    <EditText
-        android:id="@+id/wiaj_et_numero_second"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Numero"
+        android:hint="Segundo numero"
         android:enabled="false" />
 
     <Button

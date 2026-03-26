@@ -13,8 +13,12 @@ public class wiajSecondActivity extends AppCompatActivity {
 
     private EditText wiajEtNombre;
     private EditText wiajEtApellidos;
+    private EditText wiajEtPrimerNumero;
+    private EditText wiajEtSegundoNumero;
     private Button wiajBtnSiguiente;
+    private Button wiajBtnCerrar;
 
+    private Intent wiajResultData;
     private static final int WIAJ_REQUEST_CODE_THIRD = 101;
 
     @Override
@@ -30,12 +34,31 @@ public class wiajSecondActivity extends AppCompatActivity {
                 wiajStartThirdActivity();
             }
         });
+
+        wiajBtnCerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (wiajResultData != null) {
+                    String nombre = wiajEtNombre.getText().toString();
+                    String apellidos = wiajEtApellidos.getText().toString();
+                    
+                    wiajResultData.putExtra("wiaj_nombre", nombre);
+                    wiajResultData.putExtra("wiaj_apellidos", apellidos);
+                    
+                    setResult(RESULT_OK, wiajResultData);
+                    finish();
+                }
+            }
+        });
     }
 
     private void wiajInitViews() {
         wiajEtNombre = findViewById(R.id.wiaj_et_nombre_second);
         wiajEtApellidos = findViewById(R.id.wiaj_et_apellidos_second);
+        wiajEtPrimerNumero = findViewById(R.id.wiaj_et_primer_numero_second);
+        wiajEtSegundoNumero = findViewById(R.id.wiaj_et_segundo_numero_second);
         wiajBtnSiguiente = findViewById(R.id.wiaj_btn_siguiente_second);
+        wiajBtnCerrar = findViewById(R.id.wiaj_btn_cerrar_second);
     }
 
     private void wiajStartThirdActivity() {
@@ -47,14 +70,16 @@ public class wiajSecondActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == WIAJ_REQUEST_CODE_THIRD && resultCode == RESULT_OK && data != null) {
-            String nombre = wiajEtNombre.getText().toString();
-            String apellidos = wiajEtApellidos.getText().toString();
+            wiajResultData = data;
             
-            data.putExtra("wiaj_nombre", nombre);
-            data.putExtra("wiaj_apellidos", apellidos);
+            int primerNum = data.getIntExtra("wiaj_dividendo", 0);
+            int segundoNum = data.getIntExtra("wiaj_divisor", 0);
             
-            setResult(RESULT_OK, data);
-            finish();
+            wiajEtPrimerNumero.setText(String.valueOf(primerNum));
+            wiajEtSegundoNumero.setText(String.valueOf(segundoNum));
+            
+            wiajBtnCerrar.setEnabled(true);
+            wiajBtnSiguiente.setEnabled(false);
         }
     }
 }

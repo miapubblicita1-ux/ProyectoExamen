@@ -10,9 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class wiajThirdActivity extends AppCompatActivity {
 
-    private EditText wiajEtDividendo;
-    private EditText wiajEtDivisor;
-    private EditText wiajEtNumero;
+    private EditText wiajEtPrimerNumero;
+    private EditText wiajEtSegundoNumero;
     private Button wiajBtnCerrar;
 
     @Override
@@ -31,25 +30,21 @@ public class wiajThirdActivity extends AppCompatActivity {
     }
 
     private void wiajInitViews() {
-        wiajEtDividendo = findViewById(R.id.wiaj_et_dividendo_third);
-        wiajEtDivisor = findViewById(R.id.wiaj_et_divisor_third);
-        wiajEtNumero = findViewById(R.id.wiaj_et_numero_third);
+        wiajEtPrimerNumero = findViewById(R.id.wiaj_et_primer_numero_third);
+        wiajEtSegundoNumero = findViewById(R.id.wiaj_et_segundo_numero_third);
         wiajBtnCerrar = findViewById(R.id.wiaj_btn_cerrar_third);
     }
 
     private void wiajReturnResults() {
-        String dividendoStr = wiajEtDividendo.getText().toString();
-        String divisorStr = wiajEtDivisor.getText().toString();
-        String numeroStr = wiajEtNumero.getText().toString();
+        String num1Str = wiajEtPrimerNumero.getText().toString();
+        String num2Str = wiajEtSegundoNumero.getText().toString();
 
-        int dividendo = dividendoStr.isEmpty() ? 0 : Integer.parseInt(dividendoStr);
-        int divisor = divisorStr.isEmpty() ? 1 : Integer.parseInt(divisorStr);
-        int numero = numeroStr.isEmpty() ? 0 : Integer.parseInt(numeroStr);
+        int num1 = num1Str.isEmpty() ? 0 : Integer.parseInt(num1Str);
+        int num2 = num2Str.isEmpty() ? 0 : Integer.parseInt(num2Str);
 
         Intent intent = new Intent();
-        intent.putExtra("wiaj_dividendo", dividendo);
-        intent.putExtra("wiaj_divisor", divisor);
-        intent.putExtra("wiaj_numero", numero);
+        intent.putExtra("wiaj_dividendo", num1);
+        intent.putExtra("wiaj_divisor", num2);
 
         setResult(RESULT_OK, intent);
         finish();
