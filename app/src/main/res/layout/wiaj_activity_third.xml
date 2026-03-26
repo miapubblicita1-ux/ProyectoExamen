@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="Tercera Pantalla"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/wiaj_et_nombre_third"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre"
+        android:enabled="false" />
+
+    <EditText
+        android:id="@+id/wiaj_et_apellidos_third"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Apellidos"
+        android:enabled="false" />
+
+    <EditText
+        android:id="@+id/wiaj_et_dividendo_third"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Dividendo"
+        android:inputType="number"
+        android:enabled="true" />
+
+    <EditText
+        android:id="@+id/wiaj_et_divisor_third"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Divisor"
+        android:inputType="number"
+        android:enabled="true" />
+
+    <EditText
+        android:id="@+id/wiaj_et_numero_third"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Numero (para invertir)"
+        android:inputType="number"
+        android:enabled="true" />
+
+    <Button
+        android:id="@+id/wiaj_btn_cerrar_third"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cerrar"
+        android:enabled="true" />
+
+</LinearLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="Primera Pantalla"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/wiaj_et_nombre_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre"
+        android:enabled="false" />
+
+    <EditText
+        android:id="@+id/wiaj_et_apellidos_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Apellidos"
+        android:enabled="false" />
+
+    <EditText
+        android:id="@+id/wiaj_et_dividendo_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Dividendo"
+        android:enabled="false" />
+
+    <EditText
+        android:id="@+id/wiaj_et_divisor_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Divisor"
+        android:enabled="false" />
+
+    <EditText
+        android:id="@+id/wiaj_et_parte_entera_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Parte entera"
+        android:enabled="false" />
+
+    <EditText
+        android:id="@+id/wiaj_et_residuo_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Residuo"
+        android:enabled="false" />
+
+    <EditText
+        android:id="@+id/wiaj_et_num_invertido_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Num. Invertido"
+        android:enabled="false" />
+
+    <Button
+        android:id="@+id/wiaj_btn_siguiente_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Siguiente" />
+
+    <Button
+        android:id="@+id/wiaj_btn_mostrar_resultados_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mostrar Resultados"
+        android:enabled="false" />
+
+</LinearLayout>
