@@ -13,6 +13,8 @@ public class wiajMainActivity extends AppCompatActivity {
 
     private EditText wiajEtNombre;
     private EditText wiajEtApellidos;
+    private EditText wiajEtNum1;
+    private EditText wiajEtNum2;
     private EditText wiajEtMultiplicacion;
     private EditText wiajEtPotencia;
     private EditText wiajEtFactorial;
@@ -28,6 +30,7 @@ public class wiajMainActivity extends AppCompatActivity {
         setContentView(R.layout.wiaj_activity_main);
 
         wiajInitViews();
+        wiajClearFields();
 
         wiajBtnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +54,8 @@ public class wiajMainActivity extends AppCompatActivity {
     private void wiajInitViews() {
         wiajEtNombre = findViewById(R.id.wiaj_et_nombre_main);
         wiajEtApellidos = findViewById(R.id.wiaj_et_apellidos_main);
+        wiajEtNum1 = findViewById(R.id.wiaj_et_num1_main);
+        wiajEtNum2 = findViewById(R.id.wiaj_et_num2_main);
         wiajEtMultiplicacion = findViewById(R.id.wiaj_et_multiplicacion_main);
         wiajEtPotencia = findViewById(R.id.wiaj_et_potencia_main);
         wiajEtFactorial = findViewById(R.id.wiaj_et_factorial_main);
@@ -61,6 +66,8 @@ public class wiajMainActivity extends AppCompatActivity {
     private void wiajClearFields() {
         wiajEtNombre.setText("");
         wiajEtApellidos.setText("");
+        wiajEtNum1.setText("");
+        wiajEtNum2.setText("");
         wiajEtMultiplicacion.setText("");
         wiajEtPotencia.setText("");
         wiajEtFactorial.setText("");
@@ -84,27 +91,46 @@ public class wiajMainActivity extends AppCompatActivity {
     private void wiajDisplayResults(Intent data) {
         String nombre = data.getStringExtra("wiaj_nombre");
         String apellidos = data.getStringExtra("wiaj_apellidos");
-        int base = data.getIntExtra("wiaj_dividendo", 0);
-        int exponente = data.getIntExtra("wiaj_divisor", 0);
-        int numero = data.getIntExtra("wiaj_numero", 0);
+        int num1 = data.getIntExtra("wiaj_dividendo", 0);
+        int num2 = data.getIntExtra("wiaj_divisor", 0);
 
-        long multiplicacion = (long) base * exponente;
-        double potencia = Math.pow(base, exponente);
-        long factorial = wiajCalculateFactorial(numero);
+        long multiplicacion = wiajSumBasedMultiply(num1, num2);
+        long potencia = wiajSumBasedPower(num1, num2);
+        long factorial = wiajSumBasedFactorial(num1);
 
         wiajEtNombre.setText(nombre);
         wiajEtApellidos.setText(apellidos);
+        wiajEtNum1.setText(String.valueOf(num1));
+        wiajEtNum2.setText(String.valueOf(num2));
         wiajEtMultiplicacion.setText(String.valueOf(multiplicacion));
         wiajEtPotencia.setText(String.valueOf(potencia));
         wiajEtFactorial.setText(String.valueOf(factorial));
     }
 
-    private long wiajCalculateFactorial(int n) {
-        if (n < 0) return 0;
-        long fact = 1;
-        for (int i = 1; i <= n; i++) {
-            fact *= i;
+    private long wiajSumBasedMultiply(long a, long b) {
+        long result = 0;
+        for (long i = 0; i < b; i++) {
+            result += a;
         }
-        return fact;
+        return result;
+    }
+
+    private long wiajSumBasedPower(int base, int exponente) {
+        if (exponente == 0) return 1;
+        long result = base;
+        for (int i = 1; i < exponente; i++) {
+            result = wiajSumBasedMultiply(result, base);
+        }
+        return result;
+    }
+
+    private long wiajSumBasedFactorial(int n) {
+        if (n < 0) return 0;
+        if (n == 0) return 1;
+        long result = 1;
+        for (int i = 1; i <= n; i++) {
+            result = wiajSumBasedMultiply(result, i);
+        }
+        return result;
     }
 }

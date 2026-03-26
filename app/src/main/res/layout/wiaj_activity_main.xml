@@ -28,6 +28,20 @@
         android:enabled="false" />
 
     <EditText
+        android:id="@+id/wiaj_et_num1_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Primer Número"
+        android:enabled="false" />
+
+    <EditText
+        android:id="@+id/wiaj_et_num2_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Segundo Número"
+        android:enabled="false" />
+
+    <EditText
         android:id="@+id/wiaj_et_multiplicacion_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

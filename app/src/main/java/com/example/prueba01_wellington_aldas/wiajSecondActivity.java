@@ -39,8 +39,18 @@ public class wiajSecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (wiajResultData != null) {
-                    String nombre = wiajEtNombre.getText().toString();
-                    String apellidos = wiajEtApellidos.getText().toString();
+                    String nombre = wiajEtNombre.getText().toString().trim();
+                    String apellidos = wiajEtApellidos.getText().toString().trim();
+                    
+                    if (nombre.isEmpty()) {
+                        wiajEtNombre.setError("El nombre no puede estar vacío");
+                        return;
+                    }
+                    
+                    if (apellidos.isEmpty()) {
+                        wiajEtApellidos.setError("Los apellidos no pueden estar vacíos");
+                        return;
+                    }
                     
                     wiajResultData.putExtra("wiaj_nombre", nombre);
                     wiajResultData.putExtra("wiaj_apellidos", apellidos);
@@ -77,6 +87,9 @@ public class wiajSecondActivity extends AppCompatActivity {
             
             wiajEtPrimerNumero.setText(String.valueOf(primerNum));
             wiajEtSegundoNumero.setText(String.valueOf(segundoNum));
+
+            wiajEtNombre.setEnabled(true);
+            wiajEtApellidos.setEnabled(true);
             
             wiajBtnCerrar.setEnabled(true);
             wiajBtnSiguiente.setEnabled(false);

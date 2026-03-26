@@ -36,11 +36,30 @@ public class wiajThirdActivity extends AppCompatActivity {
     }
 
     private void wiajReturnResults() {
-        String num1Str = wiajEtPrimerNumero.getText().toString();
-        String num2Str = wiajEtSegundoNumero.getText().toString();
+        String num1Str = wiajEtPrimerNumero.getText().toString().trim();
+        String num2Str = wiajEtSegundoNumero.getText().toString().trim();
 
-        int num1 = num1Str.isEmpty() ? 0 : Integer.parseInt(num1Str);
-        int num2 = num2Str.isEmpty() ? 0 : Integer.parseInt(num2Str);
+        if (num1Str.isEmpty()) {
+            wiajEtPrimerNumero.setError("El primer número no puede estar vacío");
+            return;
+        }
+
+        int num1 = Integer.parseInt(num1Str);
+        if (num1 == 0) {
+            wiajEtPrimerNumero.setError("El primer número no puede ser 0");
+            return;
+        }
+
+        if(num2Str.isEmpty()){
+            wiajEtSegundoNumero.setError("El segundo número no puede estar vacío");
+            return;
+        }
+
+        int num2 = Integer.parseInt(num2Str);
+        if (num2 == 0) {
+            wiajEtSegundoNumero.setError("El segundo número no puede ser 0");
+            return;
+        }
 
         Intent intent = new Intent();
         intent.putExtra("wiaj_dividendo", num1);
