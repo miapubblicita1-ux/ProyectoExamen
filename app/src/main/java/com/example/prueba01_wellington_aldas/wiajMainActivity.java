@@ -13,11 +13,9 @@ public class wiajMainActivity extends AppCompatActivity {
 
     private EditText wiajEtNombre;
     private EditText wiajEtApellidos;
-    private EditText wiajEtDividendo;
-    private EditText wiajEtDivisor;
-    private EditText wiajEtParteEntera;
-    private EditText wiajEtResiduo;
-    private EditText wiajEtNumInvertido;
+    private EditText wiajEtMultiplicacion;
+    private EditText wiajEtPotencia;
+    private EditText wiajEtFactorial;
     private Button wiajBtnSiguiente;
     private Button wiajBtnMostrarResultados;
 
@@ -53,11 +51,9 @@ public class wiajMainActivity extends AppCompatActivity {
     private void wiajInitViews() {
         wiajEtNombre = findViewById(R.id.wiaj_et_nombre_main);
         wiajEtApellidos = findViewById(R.id.wiaj_et_apellidos_main);
-        wiajEtDividendo = findViewById(R.id.wiaj_et_dividendo_main);
-        wiajEtDivisor = findViewById(R.id.wiaj_et_divisor_main);
-        wiajEtParteEntera = findViewById(R.id.wiaj_et_parte_entera_main);
-        wiajEtResiduo = findViewById(R.id.wiaj_et_residuo_main);
-        wiajEtNumInvertido = findViewById(R.id.wiaj_et_num_invertido_main);
+        wiajEtMultiplicacion = findViewById(R.id.wiaj_et_multiplicacion_main);
+        wiajEtPotencia = findViewById(R.id.wiaj_et_potencia_main);
+        wiajEtFactorial = findViewById(R.id.wiaj_et_factorial_main);
         wiajBtnSiguiente = findViewById(R.id.wiaj_btn_siguiente_main);
         wiajBtnMostrarResultados = findViewById(R.id.wiaj_btn_mostrar_resultados_main);
     }
@@ -65,11 +61,9 @@ public class wiajMainActivity extends AppCompatActivity {
     private void wiajClearFields() {
         wiajEtNombre.setText("");
         wiajEtApellidos.setText("");
-        wiajEtDividendo.setText("");
-        wiajEtDivisor.setText("");
-        wiajEtParteEntera.setText("");
-        wiajEtResiduo.setText("");
-        wiajEtNumInvertido.setText("");
+        wiajEtMultiplicacion.setText("");
+        wiajEtPotencia.setText("");
+        wiajEtFactorial.setText("");
         wiajBtnMostrarResultados.setEnabled(false);
     }
 
@@ -90,35 +84,27 @@ public class wiajMainActivity extends AppCompatActivity {
     private void wiajDisplayResults(Intent data) {
         String nombre = data.getStringExtra("wiaj_nombre");
         String apellidos = data.getStringExtra("wiaj_apellidos");
-        int dividendo = data.getIntExtra("wiaj_dividendo", 0);
-        int divisor = data.getIntExtra("wiaj_divisor", 1);
+        int base = data.getIntExtra("wiaj_dividendo", 0);
+        int exponente = data.getIntExtra("wiaj_divisor", 0);
         int numero = data.getIntExtra("wiaj_numero", 0);
 
-        int parteEntera = 0;
-        int residuo = 0;
-        if (divisor != 0) {
-            parteEntera = dividendo / divisor;
-            residuo = dividendo % divisor;
-        }
-
-        int numInvertido = wiajReverseNumber(numero);
+        long multiplicacion = (long) base * exponente;
+        double potencia = Math.pow(base, exponente);
+        long factorial = wiajCalculateFactorial(numero);
 
         wiajEtNombre.setText(nombre);
         wiajEtApellidos.setText(apellidos);
-        wiajEtDividendo.setText(String.valueOf(dividendo));
-        wiajEtDivisor.setText(String.valueOf(divisor));
-        wiajEtParteEntera.setText(String.valueOf(parteEntera));
-        wiajEtResiduo.setText(String.valueOf(residuo));
-        wiajEtNumInvertido.setText(String.valueOf(numInvertido));
+        wiajEtMultiplicacion.setText(String.valueOf(multiplicacion));
+        wiajEtPotencia.setText(String.valueOf(potencia));
+        wiajEtFactorial.setText(String.valueOf(factorial));
     }
 
-    private int wiajReverseNumber(int num) {
-        int reversed = 0;
-        while (num != 0) {
-            int digit = num % 10;
-            reversed = reversed * 10 + digit;
-            num /= 10;
+    private long wiajCalculateFactorial(int n) {
+        if (n < 0) return 0;
+        long fact = 1;
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
         }
-        return reversed;
+        return fact;
     }
 }

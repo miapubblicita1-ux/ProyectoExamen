@@ -28,38 +28,24 @@
         android:enabled="false" />
 
     <EditText
-        android:id="@+id/wiaj_et_dividendo_main"
+        android:id="@+id/wiaj_et_multiplicacion_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Dividendo"
+        android:hint="Multiplicación"
         android:enabled="false" />
 
     <EditText
-        android:id="@+id/wiaj_et_divisor_main"
+        android:id="@+id/wiaj_et_potencia_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Divisor"
+        android:hint="Potencia"
         android:enabled="false" />
 
     <EditText
-        android:id="@+id/wiaj_et_parte_entera_main"
+        android:id="@+id/wiaj_et_factorial_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Parte entera"
-        android:enabled="false" />
-
-    <EditText
-        android:id="@+id/wiaj_et_residuo_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Residuo"
-        android:enabled="false" />
-
-    <EditText
-        android:id="@+id/wiaj_et_num_invertido_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Num. Invertido"
+        android:hint="Factorial"
         android:enabled="false" />
 
     <Button
